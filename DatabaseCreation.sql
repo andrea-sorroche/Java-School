@@ -7,7 +7,7 @@ CREATE TABLE station (
 );
 CREATE TABLE train (
 	id INT NOT NULL AUTO_INCREMENT,
-    train_number VARCHAR(150) NOT NULL,
+    train_number VARCHAR(150) NOT NULL UNIQUE,
     seats INT NOT NULL,
     PRIMARY KEY (id)
 );
@@ -37,6 +37,19 @@ CREATE TABLE schedule (
         REFERENCES station(id),
     FOREIGN KEY (train_id)
         REFERENCES train(id)
+);
+CREATE TABLE routes (
+	train_number VARCHAR(150),
+    source_id INT,
+    destination_id INT,
+    distance INT,
+    duration TIME,
+    FOREIGN KEY (train_number)
+        REFERENCES train(train_number),
+    FOREIGN KEY (source_id)
+        REFERENCES station(id),
+	FOREIGN KEY (destination_id)
+        REFERENCES station(id)
 );
 
 
