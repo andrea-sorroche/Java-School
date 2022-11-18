@@ -9,6 +9,7 @@ CREATE TABLE train (
 	id INT NOT NULL AUTO_INCREMENT,
     train_number VARCHAR(150) NOT NULL UNIQUE,
     seats INT NOT NULL,
+    canceled BOOLEAN,
     PRIMARY KEY (id)
 );
 
@@ -30,22 +31,31 @@ CREATE TABLE ticket (
     PRIMARY KEY (id)
 );
 CREATE TABLE schedule (
+	id INT NOT NULL AUTO_INCREMENT,
 	station_id INT,
     train_id INT,
     time TIME,
+    PRIMARY KEY (id),
     FOREIGN KEY (station_id)
         REFERENCES station(id),
     FOREIGN KEY (train_id)
         REFERENCES train(id)
 );
-CREATE TABLE routes (
+CREATE TABLE route (
+	id INT NOT NULL AUTO_INCREMENT,
 	train_number VARCHAR(150),
+    segment VARCHAR(150),
+    PRIMARY KEY (id),
+    FOREIGN KEY (train_number)
+        REFERENCES train(train_number)
+);
+CREATE TABLE segment (
+	id INT NOT NULL AUTO_INCREMENT,
     source_id INT,
     destination_id INT,
     distance INT,
     duration TIME,
-    FOREIGN KEY (train_number)
-        REFERENCES train(train_number),
+    PRIMARY KEY (id),
     FOREIGN KEY (source_id)
         REFERENCES station(id),
 	FOREIGN KEY (destination_id)
