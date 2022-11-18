@@ -3,7 +3,7 @@ USE railway;
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
     login VARCHAR(50),
-    passwork VARCHAR(50),
+    password VARCHAR(50),
     PRIMARY KEY (id)
 );
 CREATE TABLE role (
