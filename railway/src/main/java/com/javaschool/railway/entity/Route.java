@@ -12,6 +12,9 @@ public class Route {
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     private Collection<Train> trains;
 
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    private Collection<RouteConnection> route_connections;
+
     public Integer getId() {
         return id;
     }
@@ -26,5 +29,13 @@ public class Route {
 
     public void setTrains(Collection<Train> trains) {
         this.trains = trains;
+    }
+
+    public Collection<RouteConnection> getRouteConnections() {
+        return route_connections;
+    }
+
+    public void setRouteConnections(Collection<RouteConnection> route_connections) {
+        this.route_connections = route_connections;
     }
 }

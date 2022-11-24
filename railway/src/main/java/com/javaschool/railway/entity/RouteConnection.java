@@ -12,6 +12,14 @@ public class RouteConnection {
 
     private String route_id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="route_id",insertable = false, updatable = false)
+    private Route route;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="route_part_id",insertable = false, updatable = false)
+    private RoutePart routePart;
+
     public Integer getId() {
         return id;
     }
@@ -36,4 +44,19 @@ public class RouteConnection {
         this.route_id = route_id;
     }
 
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public RoutePart getRoutePart() {
+        return routePart;
+    }
+
+    public void setRoutePart(RoutePart routePart) {
+        this.routePart = routePart;
+    }
 }

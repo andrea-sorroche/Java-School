@@ -1,6 +1,7 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class RoutePart {
@@ -15,6 +16,9 @@ public class RoutePart {
     private Integer price;
 
     private java.sql.Date time_passing;
+
+    @OneToMany(mappedBy = "routePart", cascade = CascadeType.ALL)
+    private Collection<RouteConnection> route_connections;
 
     public Integer getId() {
         return id;
@@ -56,5 +60,11 @@ public class RoutePart {
         this.time_passing = time_passing;
     }
 
+    public Collection<RouteConnection> getRouteConnections() {
+        return route_connections;
+    }
 
+    public void setRoute_connections(Collection<RouteConnection> routeConnections) {
+        this.route_connections = route_connections;
+    }
 }
