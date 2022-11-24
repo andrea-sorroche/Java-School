@@ -22,6 +22,10 @@ public class Ticket {
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
     private Collection<UserTicket> user_tickets;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="train_id",insertable = false, updatable = false)
+    private Train train;
+
     public Integer getId() {
         return id;
     }
@@ -68,6 +72,14 @@ public class Ticket {
 
     public void setUserTickets(Collection<UserTicket> user_tickets) {
         this.user_tickets = user_tickets;
+    }
+
+    public Train getTrain() {
+        return train;
+    }
+
+    public void setTrain(Train train) {
+        this.train = train;
     }
 }
 
