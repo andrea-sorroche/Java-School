@@ -1,6 +1,7 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Ticket {
@@ -17,6 +18,9 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="passenger_id",insertable = false, updatable = false)
     private Passenger passenger;
+
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
+    private Collection<UserTicket> user_tickets;
 
     public Integer getId() {
         return id;
@@ -50,8 +54,20 @@ public class Ticket {
         this.departure_date = departure_date;
     }
 
-    public Passenger getPassenger() { return passenger; }
+    public Passenger getPassenger() {
+        return passenger;
+    }
 
-    public void setPassenger(Passenger passenger) { this.passenger = passenger; }
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public Collection<UserTicket> getUserTickets() {
+        return user_tickets;
+    }
+
+    public void setUserTickets(Collection<UserTicket> user_tickets) {
+        this.user_tickets = user_tickets;
+    }
 }
 

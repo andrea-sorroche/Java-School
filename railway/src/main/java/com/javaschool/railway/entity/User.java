@@ -1,6 +1,7 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class User {
@@ -11,6 +12,12 @@ public class User {
     private String login;
 
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Collection<UserRole> user_roles;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Collection<UserTicket> user_tickets;
 
     public Integer getId() {
         return id;
@@ -34,6 +41,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<UserRole> getUserRoles() {
+        return user_roles;
+    }
+
+    public void setUserRoles(Collection<UserRole> user_roles) {
+        this.user_roles = user_roles;
+    }
+
+    public Collection<UserTicket> getUserTickets() {
+        return user_tickets;
+    }
+
+    public void setUserTickets(Collection<UserTicket> user_tickets) {
+        this.user_tickets = user_tickets;
     }
 
 }

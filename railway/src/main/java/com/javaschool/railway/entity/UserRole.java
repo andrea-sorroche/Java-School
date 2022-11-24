@@ -16,6 +16,10 @@ public class UserRole {
     @JoinColumn(name="role_id",insertable = false, updatable = false)
     private Role role;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id",insertable = false, updatable = false)
+    private User user;
+
     public Integer getId() {
         return id;
     }
@@ -46,5 +50,13 @@ public class UserRole {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

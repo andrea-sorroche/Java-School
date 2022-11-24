@@ -1,6 +1,7 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class UserTicket {
@@ -13,6 +14,16 @@ public class UserTicket {
     private Integer ticket_id;
 
     private java.sql.Date payment_time;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id",insertable = false, updatable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="ticket_id",insertable = false, updatable = false)
+    private Ticket ticket;
+
+
 
     public Integer getId() {
         return id;
@@ -44,5 +55,21 @@ public class UserTicket {
 
     public void setPaymentTime(java.sql.Date payment_time) {
         this.payment_time = payment_time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }
