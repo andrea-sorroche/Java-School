@@ -12,6 +12,10 @@ public class UserRole {
 
     private Integer role_id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="role_id",insertable = false, updatable = false)
+    private Role role;
+
     public Integer getId() {
         return id;
     }
@@ -34,5 +38,13 @@ public class UserRole {
 
     public void setRoleId(Integer role_id) {
         this.role_id = role_id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

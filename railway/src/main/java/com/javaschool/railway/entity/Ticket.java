@@ -14,6 +14,10 @@ public class Ticket {
 
     private java.sql.Date departure_date;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="passenger_id",insertable = false, updatable = false)
+    private Passenger passenger;
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +49,9 @@ public class Ticket {
     public void setDepartureDate(java.sql.Date departure_date) {
         this.departure_date = departure_date;
     }
+
+    public Passenger getPassenger() { return passenger; }
+
+    public void setPassenger(Passenger passenger) { this.passenger = passenger; }
 }
 

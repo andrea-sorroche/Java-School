@@ -1,6 +1,7 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Role {
@@ -9,6 +10,9 @@ public class Role {
     private Integer id;
 
     private String name;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private Collection<UserRole> user_roles;
 
     public Integer getId() {
         return id;
@@ -26,4 +30,11 @@ public class Role {
         this.name = name;
     }
 
+    public Collection<UserRole> getUserRoles() {
+        return user_roles;
+    }
+
+    public void setUserRoles(Collection<UserRole> user_roles) {
+        this.user_roles = user_roles;
+    }
 }

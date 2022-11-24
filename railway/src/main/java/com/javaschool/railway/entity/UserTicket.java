@@ -34,7 +34,7 @@ public class UserTicket {
         return ticket_id;
     }
 
-    public void setTicketId(Integer role_id) {
+    public void setTicketId(Integer ticket_id) {
         this.ticket_id = ticket_id;
     }
 
