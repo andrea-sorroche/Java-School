@@ -22,7 +22,11 @@ public class RoutePart {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_from",insertable = false, updatable = false)
-    private Station station;
+    private Station stationfrom;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="station_to",insertable = false, updatable = false)
+    private Station stationto;
 
     public Integer getId() {
         return id;
@@ -68,15 +72,23 @@ public class RoutePart {
         return route_connections;
     }
 
-    public void setRoute_connections(Collection<RouteConnection> routeConnections) {
+    public void setRouteConnections(Collection<RouteConnection> route_connections) {
         this.route_connections = route_connections;
     }
 
-    public Station getStation() {
-        return station;
+    public Station getStationfrom() {
+        return stationfrom;
     }
 
-    public void setStation(Station station) {
-        this.station = station;
+    public void setStationfrom(Station stationfrom) {
+        this.stationfrom = stationfrom;
+    }
+
+    public Station getStationto() {
+        return stationto;
+    }
+
+    public void setStationto(Station stationto) {
+        this.stationto = stationto;
     }
 }

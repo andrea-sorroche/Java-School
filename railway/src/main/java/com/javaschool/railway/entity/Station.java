@@ -15,8 +15,11 @@ public class Station {
 
     private Boolean closed;
 
-    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL)
-    private Collection<RoutePart> route_parts;
+    @OneToMany(mappedBy = "stationfrom", cascade = CascadeType.ALL)
+    private Collection<RoutePart> route_parts_from;
+
+    @OneToMany(mappedBy = "stationto", cascade = CascadeType.ALL)
+    private Collection<RoutePart> route_parts_to;
 
     public Integer getId() {
         return id;
@@ -50,11 +53,21 @@ public class Station {
         this.closed = isClosed;
     }
 
-    public Collection<RoutePart> getRouteParts() {
-        return route_parts;
+    public Collection<RoutePart> getRoute_parts_from() {
+        return route_parts_from;
     }
 
-    public void setRouteParts(Collection<RoutePart> route_parts) {
-        this.route_parts = route_parts;
+    public void setRoute_parts_from(Collection<RoutePart> route_parts_from) {
+        this.route_parts_from = route_parts_from;
+    }
+
+    public Collection<RoutePart> getRoute_parts_to() {
+        return route_parts_to;
+    }
+
+    public void setRoute_parts_to(Collection<RoutePart> route_parts_to) {
+        this.route_parts_to = route_parts_to;
     }
 }
+
+
