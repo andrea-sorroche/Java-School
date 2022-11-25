@@ -15,10 +15,10 @@ public class Station {
 
     private Boolean closed;
 
-    @OneToMany(mappedBy = "stationfrom", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "station_from", cascade = CascadeType.ALL)
     private Collection<RoutePart> route_parts_from;
 
-    @OneToMany(mappedBy = "stationto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "station_to", cascade = CascadeType.ALL)
     private Collection<RoutePart> route_parts_to;
 
     public Integer getId() {
