@@ -9,10 +9,6 @@ public class RoutePart {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private Integer station_from;
-
-    private Integer station_to;
-
     private Integer price;
 
     private java.sql.Date time_passing;
@@ -22,11 +18,11 @@ public class RoutePart {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_from",insertable = false, updatable = false)
-    private Station stationfrom;
+    private Station station_from;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_to",insertable = false, updatable = false)
-    private Station stationto;
+    private Station station_to;
 
     public Integer getId() {
         return id;
@@ -36,19 +32,19 @@ public class RoutePart {
         this.id = id;
     }
 
-    public Integer getStationFrom() {
+    public Station getStationFrom() {
         return station_from;
     }
 
-    public void setStationFrom(Integer station_from) {
+    public void setStationFrom(Station station_from) {
         this.station_from = station_from;
     }
 
-    public Integer getStationTo() {
+    public Station getStationTo() {
         return station_to;
     }
 
-    public void setStationTo(Integer station_to) {
+    public void setStationTo(Station station_to) {
         this.station_to = station_to;
     }
 
@@ -76,19 +72,4 @@ public class RoutePart {
         this.route_connections = route_connections;
     }
 
-    public Station getStationfrom() {
-        return stationfrom;
-    }
-
-    public void setStationfrom(Station stationfrom) {
-        this.stationfrom = stationfrom;
-    }
-
-    public Station getStationto() {
-        return stationto;
-    }
-
-    public void setStationto(Station stationto) {
-        this.stationto = stationto;
-    }
 }
