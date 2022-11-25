@@ -17,8 +17,12 @@ public class RoutePart {
 
     private java.sql.Date time_passing;
 
-    @OneToMany(mappedBy = "routePart", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "route_part", cascade = CascadeType.ALL)
     private Collection<RouteConnection> route_connections;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="station_from",insertable = false, updatable = false)
+    private Station station;
 
     public Integer getId() {
         return id;
@@ -66,5 +70,13 @@ public class RoutePart {
 
     public void setRoute_connections(Collection<RouteConnection> routeConnections) {
         this.route_connections = route_connections;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 }

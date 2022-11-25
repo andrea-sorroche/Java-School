@@ -18,7 +18,7 @@ public class RouteConnection {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="route_part_id",insertable = false, updatable = false)
-    private RoutePart routePart;
+    private RoutePart route_part;
 
     public Integer getId() {
         return id;
@@ -53,10 +53,10 @@ public class RouteConnection {
     }
 
     public RoutePart getRoutePart() {
-        return routePart;
+        return route_part;
     }
 
-    public void setRoutePart(RoutePart routePart) {
-        this.routePart = routePart;
+    public void setRoutePart(RoutePart route_part) {
+        this.route_part = route_part;
     }
 }
