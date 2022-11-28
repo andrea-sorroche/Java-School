@@ -14,7 +14,7 @@ public class Station {
     private String name;
 
     @Column(name = "stop_duration")
-    private java.sql.Date stopDuration;
+    private java.sql.Time stopDuration;
 
     @Column(name = "closed")
     private Boolean closed;
@@ -41,11 +41,11 @@ public class Station {
         this.name = name;
     }
 
-    public java.sql.Date getStopDuration() {
+    public java.sql.Time getStopDuration() {
         return stopDuration;
     }
 
-    public void setStopDuration(java.sql.Date stopDuration) {
+    public void setStopDuration(java.sql.Time stopDuration) {
         this.stopDuration = stopDuration;
     }
 

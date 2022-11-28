@@ -23,7 +23,7 @@ public class Train {
     private Integer routeId;
 
     @Column(name = "departure_time")
-    private java.sql.Date departureTime;
+    private java.sql.Time departureTime;
 
     @OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
     private Collection<Ticket> tickets;
@@ -64,11 +64,11 @@ public class Train {
         this.routeId = routeId;
     }
 
-    public java.sql.Date getDepartureTime() {
+    public java.sql.Time getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(java.sql.Date departureTime) {
+    public void setDepartureTime(java.sql.Time departureTime) {
         this.departureTime = departureTime;
     }
 

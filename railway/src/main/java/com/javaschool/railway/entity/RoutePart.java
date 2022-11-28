@@ -14,7 +14,7 @@ public class RoutePart {
     private Integer price;
 
     @Column(name = "time_passing")
-    private java.sql.Date timePassing;
+    private java.sql.Time timePassing;
 
     @OneToMany(mappedBy = "routePart", cascade = CascadeType.ALL)
     private Collection<RouteConnection> routeConnections;
@@ -59,11 +59,11 @@ public class RoutePart {
         this.price = price;
     }
 
-    public java.sql.Date getTimePassing() {
+    public java.sql.Time getTimePassing() {
         return timePassing;
     }
 
-    public void setTimePassing(java.sql.Date timePassing) {
+    public void setTimePassing(java.sql.Time timePassing) {
         this.timePassing = timePassing;
     }
 

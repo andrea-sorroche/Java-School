@@ -16,7 +16,7 @@ public class UserTicket {
     private Integer ticketId;
 
     @Column(name = "payment_time")
-    private java.sql.Date paymentTime;
+    private java.sql.Time paymentTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",insertable = false, updatable = false)
@@ -52,11 +52,11 @@ public class UserTicket {
         this.ticketId = ticketId;
     }
 
-    public java.sql.Date getPaymentTime() {
+    public java.sql.Time getPaymentTime() {
         return paymentTime;
     }
 
-    public void setPaymentTime(java.sql.Date paymentTime) {
+    public void setPaymentTime(java.sql.Time paymentTime) {
         this.paymentTime = paymentTime;
     }
 
