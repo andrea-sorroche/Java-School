@@ -7,22 +7,25 @@ import java.util.Collection;
 public class RoutePart {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "price")
     private Integer price;
 
-    private java.sql.Date time_passing;
+    @Column(name = "time_passing")
+    private java.sql.Date timePassing;
 
-    @OneToMany(mappedBy = "route_part", cascade = CascadeType.ALL)
-    private Collection<RouteConnection> route_connections;
+    @OneToMany(mappedBy = "routePart", cascade = CascadeType.ALL)
+    private Collection<RouteConnection> routeConnections;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_from",insertable = false, updatable = false)
-    private Station station_from;
+    private Station stationFrom;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_to",insertable = false, updatable = false)
-    private Station station_to;
+    private Station stationTo;
 
     public Integer getId() {
         return id;
@@ -33,19 +36,19 @@ public class RoutePart {
     }
 
     public Station getStationFrom() {
-        return station_from;
+        return stationFrom;
     }
 
-    public void setStationFrom(Station station_from) {
-        this.station_from = station_from;
+    public void setStationFrom(Station stationFrom) {
+        this.stationFrom = stationFrom;
     }
 
     public Station getStationTo() {
-        return station_to;
+        return stationTo;
     }
 
-    public void setStationTo(Station station_to) {
-        this.station_to = station_to;
+    public void setStationTo(Station stationTo) {
+        this.stationTo = stationTo;
     }
 
     public Integer getPrice() {
@@ -57,19 +60,19 @@ public class RoutePart {
     }
 
     public java.sql.Date getTimePassing() {
-        return time_passing;
+        return timePassing;
     }
 
-    public void setTimePassing(java.sql.Date time_passing) {
-        this.time_passing = time_passing;
+    public void setTimePassing(java.sql.Date timePassing) {
+        this.timePassing = timePassing;
     }
 
     public Collection<RouteConnection> getRouteConnections() {
-        return route_connections;
+        return routeConnections;
     }
 
-    public void setRouteConnections(Collection<RouteConnection> route_connections) {
-        this.route_connections = route_connections;
+    public void setRouteConnections(Collection<RouteConnection> routeConnections) {
+        this.routeConnections = routeConnections;
     }
 
 }

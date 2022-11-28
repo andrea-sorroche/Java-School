@@ -6,11 +6,14 @@ import javax.persistence.*;
 public class UserRole {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
-    private Integer user_id;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    private Integer role_id;
+    @Column(name = "role_id")
+    private Integer roleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="role_id",insertable = false, updatable = false)
@@ -29,19 +32,19 @@ public class UserRole {
     }
 
     public Integer getUserId() {
-        return user_id;
+        return userId;
     }
 
-    public void setUserId(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getRoleId() {
-        return role_id;
+        return roleId;
     }
 
-    public void setRoleId(Integer role_id) {
-        this.role_id = role_id;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public Role getRole() {

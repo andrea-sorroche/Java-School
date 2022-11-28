@@ -1,19 +1,22 @@
 package com.javaschool.railway.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class UserTicket {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
-    private Integer user_id;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    private Integer ticket_id;
+    @Column(name = "ticket_id")
+    private Integer ticketId;
 
-    private java.sql.Date payment_time;
+    @Column(name = "payment_time")
+    private java.sql.Date paymentTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",insertable = false, updatable = false)
@@ -34,27 +37,27 @@ public class UserTicket {
     }
 
     public Integer getUserId() {
-        return user_id;
+        return userId;
     }
 
-    public void setUserId(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getTicketId() {
-        return ticket_id;
+        return ticketId;
     }
 
-    public void setTicketId(Integer ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(Integer ticketId) {
+        this.ticketId = ticketId;
     }
 
     public java.sql.Date getPaymentTime() {
-        return payment_time;
+        return paymentTime;
     }
 
-    public void setPaymentTime(java.sql.Date payment_time) {
-        this.payment_time = payment_time;
+    public void setPaymentTime(java.sql.Date paymentTime) {
+        this.paymentTime = paymentTime;
     }
 
     public User getUser() {

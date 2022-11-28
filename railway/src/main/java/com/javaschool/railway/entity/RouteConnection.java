@@ -6,11 +6,14 @@ import javax.persistence.*;
 public class RouteConnection {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
-    private String route_part_id;
+    @Column(name = "route_part_id")
+    private Integer routePartId;
 
-    private String route_id;
+    @Column(name = "route_id")
+    private Integer routeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="route_id",insertable = false, updatable = false)
@@ -18,7 +21,7 @@ public class RouteConnection {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="route_part_id",insertable = false, updatable = false)
-    private RoutePart route_part;
+    private RoutePart routePart;
 
     public Integer getId() {
         return id;
@@ -28,20 +31,20 @@ public class RouteConnection {
         this.id = id;
     }
 
-    public String getRoutePartId() {
-        return route_part_id;
+    public Integer getRoutePartId() {
+        return routePartId;
     }
 
-    public void setRoutePartId(String route_part_id) {
-        this.route_part_id = route_part_id;
+    public void setRoutePartId(Integer routePartId) {
+        this.routePartId = routePartId;
     }
 
-    public String getRouteId() {
-        return route_id;
+    public Integer getRouteId() {
+        return routeId;
     }
 
-    public void setRouteId(String route_id) {
-        this.route_id = route_id;
+    public void setRouteId(Integer routeId) {
+        this.routeId = routeId;
     }
 
     public Route getRoute() {
@@ -53,10 +56,10 @@ public class RouteConnection {
     }
 
     public RoutePart getRoutePart() {
-        return route_part;
+        return routePart;
     }
 
-    public void setRoutePart(RoutePart route_part) {
-        this.route_part = route_part;
+    public void setRoutePart(RoutePart routePart) {
+        this.routePart = routePart;
     }
 }

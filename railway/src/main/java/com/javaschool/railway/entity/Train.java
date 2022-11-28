@@ -7,17 +7,23 @@ import java.util.Collection;
 public class Train {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "number")
     private String number;
 
-    private Integer count_of_seats;
+    @Column(name = "count_of_seats")
+    private Integer countOfSeats;
 
+    @Column(name = "cancelled")
     private Boolean cancelled;
 
-    private Integer route_id;
+    @Column(name = "route_id")
+    private Integer routeId;
 
-    private java.sql.Date departure_time;
+    @Column(name = "departure_time")
+    private java.sql.Date departureTime;
 
     @OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
     private Collection<Ticket> tickets;
@@ -35,11 +41,11 @@ public class Train {
     }
 
     public Integer getCountOfSeats() {
-        return count_of_seats;
+        return countOfSeats;
     }
 
-    public void setCountOfSeats(Integer count_of_seats) {
-        this.count_of_seats = count_of_seats;
+    public void setCountOfSeats(Integer countOfSeats) {
+        this.countOfSeats = countOfSeats;
     }
 
     public Boolean isCancelled() {
@@ -51,19 +57,19 @@ public class Train {
     }
 
     public Integer getRouteId() {
-        return route_id;
+        return routeId;
     }
 
-    public void setRoute(Integer route_id) {
-        this.route_id = route_id;
+    public void setRoute(Integer routeId) {
+        this.routeId = routeId;
     }
 
     public java.sql.Date getDepartureTime() {
-        return departure_time;
+        return departureTime;
     }
 
-    public void setDepartureTime(java.sql.Date departure_time) {
-        this.departure_time = departure_time;
+    public void setDepartureTime(java.sql.Date departureTime) {
+        this.departureTime = departureTime;
     }
 
     public Collection<Ticket> getTickets() {

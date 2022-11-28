@@ -7,20 +7,24 @@ import java.util.Collection;
 public class Ticket {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
-    private Integer passenger_id;
+    @Column(name = "passenger_id")
+    private Integer passengerId;
 
-    private Integer train_id;
+    @Column(name = "train_id")
+    private Integer trainId;
 
-    private java.sql.Date departure_date;
+    @Column(name = "departure_date")
+    private java.sql.Date departureDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="passenger_id",insertable = false, updatable = false)
     private Passenger passenger;
 
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
-    private Collection<UserTicket> user_tickets;
+    private Collection<UserTicket> userTickets;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="train_id",insertable = false, updatable = false)
@@ -35,27 +39,27 @@ public class Ticket {
     }
 
     public Integer getPassengerId() {
-        return passenger_id;
+        return passengerId;
     }
 
-    public void setPassengerId(Integer passenger_id) {
-        this.passenger_id = passenger_id;
+    public void setPassengerId(Integer passengerId) {
+        this.passengerId = passengerId;
     }
 
     public Integer getTrainId() {
-        return train_id;
+        return trainId;
     }
 
-    public void setTrainId(Integer train_id) {
-        this.train_id = train_id;
+    public void setTrainId(Integer trainId) {
+        this.trainId = trainId;
     }
 
     public java.sql.Date getDepartureDate() {
-        return departure_date;
+        return departureDate;
     }
 
-    public void setDepartureDate(java.sql.Date departure_date) {
-        this.departure_date = departure_date;
+    public void setDepartureDate(java.sql.Date departureDate) {
+        this.departureDate = departureDate;
     }
 
     public Passenger getPassenger() {
@@ -67,11 +71,11 @@ public class Ticket {
     }
 
     public Collection<UserTicket> getUserTickets() {
-        return user_tickets;
+        return userTickets;
     }
 
-    public void setUserTickets(Collection<UserTicket> user_tickets) {
-        this.user_tickets = user_tickets;
+    public void setUserTickets(Collection<UserTicket> userTickets) {
+        this.userTickets = userTickets;
     }
 
     public Train getTrain() {

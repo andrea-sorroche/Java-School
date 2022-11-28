@@ -7,17 +7,20 @@ import java.util.Collection;
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "login")
     private String login;
 
+    @Column(name = "password")
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Collection<UserRole> user_roles;
+    private Collection<UserRole> userRoles;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Collection<UserTicket> user_tickets;
+    private Collection<UserTicket> userTickets;
 
     public Integer getId() {
         return id;
@@ -44,19 +47,19 @@ public class User {
     }
 
     public Collection<UserRole> getUserRoles() {
-        return user_roles;
+        return userRoles;
     }
 
-    public void setUserRoles(Collection<UserRole> user_roles) {
-        this.user_roles = user_roles;
+    public void setUserRoles(Collection<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 
     public Collection<UserTicket> getUserTickets() {
-        return user_tickets;
+        return userTickets;
     }
 
-    public void setUserTickets(Collection<UserTicket> user_tickets) {
-        this.user_tickets = user_tickets;
+    public void setUserTickets(Collection<UserTicket> userTickets) {
+        this.userTickets = userTickets;
     }
 
 }

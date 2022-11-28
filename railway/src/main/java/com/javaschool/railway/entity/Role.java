@@ -7,12 +7,14 @@ import java.util.Collection;
 public class Role {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
-    private Collection<UserRole> user_roles;
+    private Collection<UserRole> userRoles;
 
     public Integer getId() {
         return id;
@@ -31,10 +33,10 @@ public class Role {
     }
 
     public Collection<UserRole> getUserRoles() {
-        return user_roles;
+        return userRoles;
     }
 
-    public void setUserRoles(Collection<UserRole> user_roles) {
-        this.user_roles = user_roles;
+    public void setUserRoles(Collection<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }

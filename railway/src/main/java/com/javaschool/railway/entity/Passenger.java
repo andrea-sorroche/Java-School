@@ -7,16 +7,22 @@ import java.util.Collection;
 public class Passenger {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
-    private String first_name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    private String last_name;
+    @Column(name = "last_name")
+    private String lastName;
 
-    private java.sql.Date birth_date;
+    @Column(name = "birth_date")
+    private java.sql.Date birthDate;
 
-    private String mobile_phone;
+    @Column(name = "mobile_phone")
+    private String mobilePhone;
 
+    @Column(name = "email")
     private String email;
 
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
@@ -32,35 +38,35 @@ public class Passenger {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return last_name;
+        return lastName;
     }
 
-    public void setLastName(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public java.sql.Date getBirthDate() {
-        return birth_date;
+        return birthDate;
     }
 
-    public void setBirthDate(java.sql.Date birth_date) {
-        this.birth_date = birth_date;
+    public void setBirthDate(java.sql.Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getMobilePhone() {
-        return mobile_phone;
+        return mobilePhone;
     }
 
-    public void setMobilePhone(String mobile_phone) {
-        this.mobile_phone = mobile_phone;
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     public String getEmail() {

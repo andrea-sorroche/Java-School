@@ -7,13 +7,14 @@ import java.util.Collection;
 public class Route {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     private Collection<Train> trains;
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
-    private Collection<RouteConnection> route_connections;
+    private Collection<RouteConnection> routeConnections;
 
     public Integer getId() {
         return id;
@@ -32,10 +33,10 @@ public class Route {
     }
 
     public Collection<RouteConnection> getRouteConnections() {
-        return route_connections;
+        return routeConnections;
     }
 
-    public void setRouteConnections(Collection<RouteConnection> route_connections) {
-        this.route_connections = route_connections;
+    public void setRouteConnections(Collection<RouteConnection> routeConnections) {
+        this.routeConnections = routeConnections;
     }
 }

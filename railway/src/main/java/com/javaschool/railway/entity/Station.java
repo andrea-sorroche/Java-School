@@ -7,19 +7,23 @@ import java.util.Collection;
 public class Station {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "name")
     private String name;
 
-    private java.sql.Date stop_duration;
+    @Column(name = "stop_duration")
+    private java.sql.Date stopDuration;
 
+    @Column(name = "closed")
     private Boolean closed;
 
-    @OneToMany(mappedBy = "station_from", cascade = CascadeType.ALL)
-    private Collection<RoutePart> route_parts_from;
+    @OneToMany(mappedBy = "stationFrom", cascade = CascadeType.ALL)
+    private Collection<RoutePart> routePartsFrom;
 
-    @OneToMany(mappedBy = "station_to", cascade = CascadeType.ALL)
-    private Collection<RoutePart> route_parts_to;
+    @OneToMany(mappedBy = "stationTo", cascade = CascadeType.ALL)
+    private Collection<RoutePart> routePartsTo;
 
     public Integer getId() {
         return id;
@@ -38,11 +42,11 @@ public class Station {
     }
 
     public java.sql.Date getStopDuration() {
-        return stop_duration;
+        return stopDuration;
     }
 
-    public void setStopDuration(java.sql.Date stop_duration) {
-        this.stop_duration = stop_duration;
+    public void setStopDuration(java.sql.Date stopDuration) {
+        this.stopDuration = stopDuration;
     }
 
     public Boolean isClosed() {
@@ -53,20 +57,20 @@ public class Station {
         this.closed = isClosed;
     }
 
-    public Collection<RoutePart> getRoute_parts_from() {
-        return route_parts_from;
+    public Collection<RoutePart> getRoutePartsFrom() {
+        return routePartsFrom;
     }
 
-    public void setRoute_parts_from(Collection<RoutePart> route_parts_from) {
-        this.route_parts_from = route_parts_from;
+    public void setRoutePartsFrom(Collection<RoutePart> routePartsFrom) {
+        this.routePartsFrom = routePartsFrom;
     }
 
-    public Collection<RoutePart> getRoute_parts_to() {
-        return route_parts_to;
+    public Collection<RoutePart> getRoutePartsTo() {
+        return routePartsTo;
     }
 
-    public void setRoute_parts_to(Collection<RoutePart> route_parts_to) {
-        this.route_parts_to = route_parts_to;
+    public void setRoutePartsTo(Collection<RoutePart> routePartsTo) {
+        this.routePartsTo = routePartsTo;
     }
 }
 
