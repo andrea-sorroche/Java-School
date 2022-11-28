@@ -18,8 +18,8 @@ INSERT INTO station VALUES (3,0,'Malaga', '00:30');
 
 INSERT INTO route_part VALUES (1,10,"09:00",1, 2);
 INSERT INTO route_part VALUES (2,30,"11:00",2, 3);
-INSERT INTO route_part VALUES (1,10,"12:00",1, 2);
-INSERT INTO route_part VALUES (2,30,"14:00",2, 3);
+INSERT INTO route_part VALUES (3,10,"12:00",1, 2);
+INSERT INTO route_part VALUES (4,30,"14:00",2, 3);
 
 INSERT INTO route_connection VALUES (1,1,1);
 INSERT INTO route_connection VALUES (2,1,2);
