@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar {
+  background: #e20074;
+  color: #fff
+}
+span {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
