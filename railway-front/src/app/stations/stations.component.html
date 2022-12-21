@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+            <div class="col-md-8">
+                <br><h2 class="mx-auto">Stations:</h2><br>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row row-cols-3">
+                <div class="col" *ngFor="let station of stations">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{station.name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

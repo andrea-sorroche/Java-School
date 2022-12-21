@@ -9,6 +9,8 @@ import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from  '@angular/material/toolbar';
 import {MatIconModule } from '@angular/material/icon'
+import { HttpClientModule } from '@angular/common/http';
+import { StationsComponent } from './stations/stations.component';
 
 
 @NgModule({
@@ -16,14 +18,16 @@ import {MatIconModule } from '@angular/material/icon'
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    StationsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [AppComponent, HttpClientModule],
   bootstrap: [AppComponent]
